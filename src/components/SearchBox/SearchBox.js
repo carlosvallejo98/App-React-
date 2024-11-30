@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './index.css';
 
 const SearchBox = ({ onSearch }) => {
     const [inputValue, setInputValue] = useState('');
@@ -7,7 +7,7 @@ const SearchBox = ({ onSearch }) => {
     const handleInputChange = (event) => {
       const value = event.target.value;
       setInputValue(value);
-      onSearch(value); // Llama a la función de búsqueda automáticamente
+      onSearch(value); 
     };
   
     return (

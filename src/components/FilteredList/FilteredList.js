@@ -1,19 +1,18 @@
 import React from 'react';
+import  './style.css';
 
-const FilteredList = ({ items, searchText }) => {
-  const filteredItems = searchText
-    ? items.filter(item => item.name.toLowerCase().includes(searchText.toLowerCase()))
-    : items;
 
-  // Si solo hay un resultado, aplicamos una clase CSS extra para centrar
-  const isSingleItem = filteredItems.length === 1;
+const FilteredList = ({ items, serchText }) => {
+ const filteredItems = serchText 
+    ?items.filter(item => item.name.toLowerCase().includes(serchText.toLowerCase()))
+    :items;
 
-  return (
-    <div className={`filtered-list ${isSingleItem ? 'single-item' : ''}`}>
+    return (
+      <div className='lista-visible'>
       {filteredItems.length > 0 ? (
         filteredItems.map((item, index) => (
-          <div key={index} className="item">
-            <img src={item.image} alt={item.name}  />
+          <div key={index}>
+            <img src={item.image} alt={item.name} />
             <h2>{item.name}</h2>
           </div>
         ))
@@ -22,6 +21,7 @@ const FilteredList = ({ items, searchText }) => {
       )}
     </div>
   );
-};
+}
 
-export default FilteredList;
+
+export default FilteredList ;
